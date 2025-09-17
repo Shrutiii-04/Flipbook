@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Virtual Notebook</title>
+     <style>
+        body {
+             background: linear-gradient(135deg, #3494E6, #EC6EAD);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        #notebook {
+            width: 600px;
+            height: 400px;
+            perspective: 1000px;
+        }
+        #pages {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transform: rotateY(0deg);
+            transition: transform 1s;
+        }
+        .page {
+            position: absolute;
+            width: 300px;
+            height: 400px;
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transform-origin: 0 50%;
+        }
+        .page:nth-child(odd) {
+            background-color: #f0f0f0;
+        }
+	#footer {
+		position : fixed;
+		bottom : 0;
+		width : 100%;
+		background-color : #f0f0f0;
+		padding : 10px;
+	  }
+	  .foot1 {
+		text-align : right;
+		position : relative;
+		right : 100px;
+	  }
+	  #header {
+		position : fixed;
+		top : 0;
+		width : 100%;
+		background-color : #f0f0f0;
+		padding : 10px;
+		text-align : center;
+		color : #767676;
+	  }
+    </style>
+</head>
+<body>
+<div id="header">
+		<h2>Parrot is Flying</h2> 
+	</div>
+    <div id="notebook">
+        <div id="pages">
+            <div class="page">
+		<img src="D:\Flipbook Project\Flipbook Images\P2.PNG" alt="Page 2"></div>
+            <div class="page">
+		<img src="D:\Flipbook Project\Flipbook Images\P3.PNG" alt="Page 3"></div>
+            <div class="page">
+		<img src="D:\Flipbook Project\Flipbook Images\P4.PNG" alt="Page 4"></div>
+            <div class="page">
+		<img src="D:\Flipbook Project\Flipbook Images\P5.PNG" alt="Page 5"></div>
+	<div class="page">
+		<img src="D:\Flipbook Project\Flipbook Images\P6.PNG" alt="Page 6"></div>
+        <div class="page">
+		<img src="D:\Flipbook Project\Flipbook Images\P7.PNG" alt="Page 7"></div>
+	<div class="page">
+		<img src="D:\Flipbook Project\Flipbook Images\P8.PNG" alt="Page 8"></div>
+       <div class="page">
+		<img src="D:\Flipbook Project\Flipbook Images\P9.PNG" alt="Page 9"></div>
+	<div class="page">
+		<img src="D:\Flipbook Project\Flipbook Images\P10.PNG" alt="Page 10"></div>
+	<div class="page">
+		<img src="D:\Flipbook Project\Flipbook Images\P1.PNG" alt="Page 1"></div>
+    </div><br><br><br><br><br>
+ </div><br><br>
+<div id="footer">
+<div class="foot1">
+<a href="Page 1.html">Go to home Page</a>
+</div>
+</div>
+ <script>
+        const pages = document.querySelectorAll('.page');
+        let isTurning = false;
+
+        function turnPages() {
+            if (!isTurning) {
+                isTurning = true;
+                for (let i = 0; i < pages.length; i++) {
+                    pages[i].style.transition = `transform 1s ${i * 0.2}s`;
+                    pages[i].style.transform = `rotateY(-180deg)`;
+                }
+                
+                // Reset pages after turning
+                setTimeout(() => {
+                    for (let i = 0; i < pages.length; i++) {
+                        pages[i].style.transition = 'transform 0s';
+                        pages[i].style.transform = 'rotateY(0deg)';
+                    }
+                    isTurning = false;
+                }, pages.length * 200);
+            }
+        }
+
+        document.addEventListener('click', turnPages);
+    </script>
+</body>
+</html>

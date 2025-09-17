@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Virtual Notebook</title>
+     <style>
+        body {
+             background: linear-gradient(135deg, #3494E6, #EC6EAD);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        #notebook {
+            width: 600px;
+            height: 400px;
+            perspective: 1000px;
+        }
+        #pages {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transform: rotateY(0deg);
+            transition: transform 1s;
+        }
+        .page {
+            position: absolute;
+            width: 500px;
+            height: 450px;
+            background-color: #EBECCE;
+            border: 1px solid #ddd;
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transform-origin: 0 50%;
+        }
+        .page:nth-child(odd) {
+            background-color: #EBECCE;
+        }
+	#footer {
+		position : fixed;
+		bottom : 0;
+		width : 100%;
+		background-color : #f0f0f0;
+		padding : 10px;
+	  }
+	  .foot1 {
+		text-align : right;
+		position : relative;
+		right : 100px;
+	  }
+	  #header {
+		position : fixed;
+		top : 0;
+		width : 100%;
+		background-color : #f0f0f0;
+		padding : 10px;
+		text-align : center;
+		color : #767676;
+	  }
+    </style>
+</head>
+<body>
+<div id="header">
+		<h2>Horse is Running</h2> 
+	</div>
+    <div id="notebook">
+        <div id="pages">
+            <div class="page">
+		<img src="D:\Flipbook Project\Flipbook Images\H2.PNG"height="350" alt="Page 2"></div>
+            <div class="page">
+		<img src="D:\Flipbook Project\Flipbook Images\H3.PNG"height="350" alt="Page 3"></div>
+            <div class="page">
+		<img src="D:\Flipbook Project\Flipbook Images\H4.PNG" height="350"alt="Page 4"></div>
+            <div class="page">
+		<img src="D:\Flipbook Project\Flipbook Images\H5.PNG"height="350" alt="Page 5"></div>
+	<div class="page">
+		<img src="D:\Flipbook Project\Flipbook Images\H6.PNG" height="350"alt="Page 6"></div>
+      	<div class="page">
+		<img src="D:\Flipbook Project\Flipbook Images\H7.PNG" height="350"alt="Page 7"></div>
+	<div class="page">
+		<img src="D:\Flipbook Project\Flipbook Images\H8.PNG" height="350"alt="Page 8"></div>
+       <div class="page">
+		<img src="D:\Flipbook Project\Flipbook Images\H9.PNG" height="350"alt="Page 9"></div>
+	<div class="page">
+		<img src="D:\Flipbook Project\Flipbook Images\H10.PNG" height="350"alt="Page 10"></div>
+	<div class="page">
+		<img src="D:\Flipbook Project\Flipbook Images\H11.PNG" height="350"alt="Page 11"></div>
+	<div class="page">
+		<img src="D:\Flipbook Project\Flipbook Images\H12.PNG" height="350"alt="Page 12"></div>
+	<div class="page">
+		<img src="D:\Flipbook Project\Flipbook Images\H13.PNG" height="350"alt="Page 13"></div>
+	<div class="page">
+		<img src="D:\Flipbook Project\Flipbook Images\H14.PNG" height="350"alt="Page 14"></div>
+	<div class="page">
+		<img src="D:\Flipbook Project\Flipbook Images\H15.PNG" height="350"alt="Page 15"></div>
+	<div class="page">
+		<img src="D:\Flipbook Project\Flipbook Images\H16.PNG" height="350"alt="Page 16"></div>
+	<div class="page">
+		<img src="D:\Flipbook Project\Flipbook Images\H17.PNG" height="350"alt="Page 17"></div>
+	<div class="page">
+		<img src="D:\Flipbook Project\Flipbook Images\H18.PNG" height="350" alt="Page 18"></div>
+	<div class="page">
+		<img src="D:\Flipbook Project\Flipbook Images\H19.PNG" height="350"alt="Page 19"></div>
+	<div class="page">
+		<img src="D:\Flipbook Project\Flipbook Images\H20.PNG" height="350"alt="Page 20"></div>
+	<div class="page">
+		<img src="D:\Flipbook Project\Flipbook Images\H21.PNG" height="350"alt="Page 21"></div>
+	<div class="page">
+		<img src="D:\Flipbook Project\Flipbook Images\H22.PNG" height="350"alt="Page 22"></div>
+	<div class="page">
+		<img src="D:\Flipbook Project\Flipbook Images\H1.PNG" height="350"alt="Page 1"></div>
+    </div><br><br><br><br><br>
+ </div><br><br>
+<div id="footer">
+<div class="foot1">
+<a href="Page 1.html">Go to home Page</a>
+</div>
+</div>
+ <script>
+        const pages = document.querySelectorAll('.page');
+        let isTurning = false;
+
+        function turnPages() {
+            if (!isTurning) {
+                isTurning = true;
+                for (let i = 0; i < pages.length; i++) {
+                    pages[i].style.transition = `transform 1s ${i * 0.2}s`;
+                    pages[i].style.transform = `rotateY(-180deg)`;
+                }
+                
+                // Reset pages after turning
+                setTimeout(() => {
+                    for (let i = 0; i < pages.length; i++) {
+                        pages[i].style.transition = 'transform 0s';
+                        pages[i].style.transform = 'rotateY(0deg)';
+                    }
+                    isTurning = false;
+                }, pages.length * 200);
+            }
+        }
+
+        document.addEventListener('click', turnPages);
+    </script>
+</body>
+</html>

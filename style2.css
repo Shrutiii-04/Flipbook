@@ -1,0 +1,113 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #F8FABF;
+    text-align: center;
+}
+
+header {
+   background: linear-gradient(90deg, #663399, #0074e4);
+    color: #fff;
+    padding: 40px 0;
+}
+
+.animated-title {
+    font-size: 36px;
+    animation: slideIn 2s ease-in-out, scaleUp 3s infinite alternate;
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes scaleUp {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.2);
+    }
+}
+
+header p {
+    font-size: 18px;
+}
+
+.features {
+    display: flex;
+    justify-content: space-around;
+    margin: 40px 0;
+}
+
+.feature {
+    flex: 1;
+    background: #fff;
+    padding: 20px;
+    margin: 0 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.feature:hover {
+    transform: scale(1.05);
+}
+
+i {
+    font-size: 36px;
+    margin-bottom: 10px;
+    color: #0057a3;
+}
+
+.feature h2 {
+    font-size: 24px;
+animation: zoomInout 3s infinite alternate;
+}
+
+@keyframes zoomInout {
+    0% {
+        transform: scale(1);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+}
+
+.feature p {
+    font-size: 16px;
+    color: #777;
+}
+
+.start-button {
+    background-color: #0057a3;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.start-button:hover {
+    background-color: #00397f;
+}
+
+footer {
+    background: linear-gradient(90deg, #663399, #0074e4);
+    color: #fff;
+    padding: 10px 0;
+    animation: fadeIn 1s ease;
+}
+/*90deg, #3494E6, #EC6EAD      #EBEDB5*/
